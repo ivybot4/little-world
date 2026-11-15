@@ -16,7 +16,7 @@ export const buildings: BuildingConfig[] = [
   {
     id: 'cloud',
     name: "Navya's Portfolio",
-    image: '/images/buildings/cloud.png',
+    image: '/images/buildings/about.png',
     x: 42.5,
     y: -1.0,
     width: 19.5,
