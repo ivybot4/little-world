@@ -1,0 +1,16 @@
+import { Route, Routes } from 'react-router-dom';
+import { LibraryPage } from './pages/LibraryPage';
+import { MuseumPage } from './pages/MuseumPage';
+import { ProjectsPage } from './pages/ProjectsPage';
+import { WorldPage } from './pages/WorldPage';
+
+export function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<WorldPage />} />
+      <Route path="/library" element={<LibraryPage />} />
+      <Route path="/museum" element={<MuseumPage />} />
+      <Route path="/projects" element={<ProjectsPage />} />
+    </Routes>
+  );
+}

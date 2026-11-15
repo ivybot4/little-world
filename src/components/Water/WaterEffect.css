@@ -1,0 +1,95 @@
+/*
+ * Masked water layer: clips moving shimmer & ripple currents to the river mask image.
+ * Uses only CSS transforms for movement and respects prefers-reduced-motion.
+ */
+.water-effect {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/*
+ * Oversized flowing layers that translate downward/diagonally via CSS transform
+ * to simulate continuous downstream water movement and surface ripples.
+ */
+.water-flow {
+  position: absolute;
+  top: -100%;
+  left: -25%;
+  width: 150%;
+  height: 200%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.water-flow--primary {
+  background-image:
+    repeating-linear-gradient(
+      168deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 3.2%,
+      rgba(210, 244, 255, 0.34) 4.2%,
+      rgba(255, 255, 255, 0) 5.4%
+    ),
+    repeating-linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(135, 215, 250, 0.22) 2.5%,
+      rgba(255, 255, 255, 0) 5%
+    );
+  mix-blend-mode: screen;
+  animation: river-stream-primary 5.5s linear infinite;
+}
+
+.water-flow--secondary {
+  background-image:
+    repeating-linear-gradient(
+      -162deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 4.5%,
+      rgba(255, 255, 255, 0.28) 5.5%,
+      rgba(52, 130, 185, 0.2) 6.8%,
+      rgba(255, 255, 255, 0) 8%
+    );
+  mix-blend-mode: overlay;
+  animation: river-stream-secondary 8s linear infinite;
+}
+
+@keyframes river-stream-primary {
+  0% {
+    transform: translate3d(2%, 0%, 0);
+  }
+  100% {
+    transform: translate3d(-4%, 50%, 0);
+  }
+}
+
+@keyframes river-stream-secondary {
+  0% {
+    transform: translate3d(-2%, 0%, 0) scaleX(1);
+  }
+  50% {
+    transform: translate3d(1%, 25%, 0) scaleX(1.03);
+  }
+  100% {
+    transform: translate3d(-2%, 50%, 0) scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .water-flow--primary,
+  .water-flow--secondary {
+    animation: none;
+    transform: none;
+  }
+}
