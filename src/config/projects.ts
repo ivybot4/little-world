@@ -14,28 +14,19 @@ export const projects: ProjectConfig[] = [
     image: '/images/projects/book-recommendation.png',
   },
   {
-    id: 'project-2',
-    title: 'Project 2',
-    image: '/images/projects/book-recommendation.png',
+    id: 'aviation-llm',
+    title: 'Multimodal Fine-tuning',
+    image: '/images/projects/aviation-llm.png',
   },
   {
-    id: 'project-3',
-    title: 'Project 3',
-    image: '/images/projects/book-recommendation.png',
+    id: 'paligemma',
+    title: 'Paligemma from Scratch',
+    image: '/images/projects/multimodal.png',
   },
   {
-    id: 'project-4',
-    title: 'Project 4',
-    image: '/images/projects/book-recommendation.png',
+    id: 'adam-optimizer',
+    title: 'Adam Optimizer from Scratch',
+    image: '/images/projects/adam-optimizer.png',
   },
-  {
-    id: 'project-5',
-    title: 'Project 5',
-    image: '/images/projects/book-recommendation.png',
-  },
-  {
-    id: 'project-6',
-    title: 'Project 6',
-    image: '/images/projects/book-recommendation.png',
-  },
+  
 ];
