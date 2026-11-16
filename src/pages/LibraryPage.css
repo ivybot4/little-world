@@ -245,6 +245,7 @@
   height: 0;
   transform-style: preserve-3d;
   will-change: transform;
+  cursor: pointer;
 }
 
 .vasari-face {
@@ -257,6 +258,7 @@
   border-radius: 2px;
   background-repeat: no-repeat;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .vasari-face::after {
@@ -377,6 +379,22 @@
   pointer-events: none;
 }
 
+.vasari-title-btn {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  color: inherit;
+  transition: opacity 160ms ease;
+}
+
+.vasari-title-btn:hover {
+  opacity: 0.72;
+}
+
 .vasari-mask {
   position: relative;
   width: min(80vw, 640px);
@@ -454,15 +472,21 @@
   border: none;
   padding: 0;
   color: var(--ink);
+  cursor: pointer;
   z-index: 25;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.vasari-arrow:hover {
+  opacity: 0.65;
 }
 
 .vasari-arrow--prev {
-  left: calc(50% - min(19vw, 250px));
+  left: calc(50% - min(34vw, 350px));
 }
 
 .vasari-arrow--next {
-  left: calc(50% + min(19vw, 250px));
+  left: calc(50% + min(34vw, 350px));
 }
 
 .vasari-arrow svg {

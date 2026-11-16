@@ -4,7 +4,12 @@
   min-height: 100vh;
   min-height: 100dvh;
   width: 100%;
-  background-color: #faf6f9;
+  background-color: #ddb3b3;
+  background-image: url('/images/projects-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #222222;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 28px 40px 80px;

@@ -4,7 +4,48 @@ import { Frame } from '../components/Museum/Frame';
 import { artworks, type ArtworkConfig } from '../config/artworks';
 import './MuseumPage.css';
 
+/**
+ * Coming Soon view for /museum:
+ * Displays the crimson wall, wooden floor strip, link back to the world,
+ * and a single centered antique frame (/images/museum/frame.png) with
+ * "Museum coming soon" inside the frame opening.
+ */
 export function MuseumPage() {
+  return (
+    <div className="museum-page museum-page--coming-soon">
+      <header className="museum-header">
+        <Link to="/" className="museum-back-btn">
+          GO BACK
+        </Link>
+      </header>
+
+      <main className="museum-wall museum-wall--centered" aria-label="Museum">
+        <div className="museum-coming-soon-frame">
+          <img
+            src="/images/museum/frame.png"
+            alt=""
+            aria-hidden="true"
+            className="museum-coming-soon-img"
+            draggable={false}
+          />
+          <div className="museum-coming-soon-opening">
+            <h1 className="museum-coming-soon-text">Museum coming soon</h1>
+          </div>
+        </div>
+      </main>
+
+      <div className="museum-floor" aria-hidden="true">
+        <div className="museum-baseboard" />
+        <div className="museum-floor-planks" />
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Full interactive salon gallery implementation preserved for later activation.
+ */
+export function MuseumGalleryPage() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const lastTriggerRef = useRef<HTMLButtonElement | null>(null);
@@ -21,7 +62,6 @@ export function MuseumPage() {
       : false
   );
 
-  // Track prefers-reduced-motion and mobile breakpoint
   useEffect(() => {
     const motionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
     const onMotionChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
@@ -68,7 +108,6 @@ export function MuseumPage() {
     [reducedMotion]
   );
 
-  // Mouse wheel horizontal scrolling on the wall
   useEffect(() => {
     const el = viewportRef.current;
     if (!el) return;
@@ -83,7 +122,6 @@ export function MuseumPage() {
     return () => el.removeEventListener('wheel', onWheel);
   }, []);
 
-  // Pointer drag scrolling on the wall
   const dragStateRef = useRef({
     isDown: false,
     startX: 0,
@@ -121,7 +159,6 @@ export function MuseumPage() {
     dragStateRef.current.isDown = false;
   };
 
-  // Keyboard navigation (wall scroll when modal closed, prev/next artwork when modal open)
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (dialogRef.current?.open) {
@@ -152,14 +189,13 @@ export function MuseumPage() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [scrollWallBy]);
 
-  // Scroll the wall to show a frame when it gets keyboard focus
   const handleFrameKeyboardFocus = useCallback(
     (buttonEl: HTMLButtonElement) => {
       const viewport = viewportRef.current;
       if (!viewport) return;
       const vpRect = viewport.getBoundingClientRect();
       const btnRect = buttonEl.getBoundingClientRect();
-      const edgePad = 84; // keep clear of the left/right arrow buttons
+      const edgePad = 84;
 
       if (btnRect.left < vpRect.left + edgePad) {
         const delta = btnRect.left - (vpRect.left + edgePad);
@@ -178,7 +214,6 @@ export function MuseumPage() {
     [reducedMotion]
   );
 
-  // Open native dialog modal when a frame is clicked
   const handleSelectArtwork = useCallback(
     (artwork: ArtworkConfig, buttonEl: HTMLButtonElement) => {
       if (dragStateRef.current.didDrag) {
@@ -206,7 +241,6 @@ export function MuseumPage() {
     }
   }, []);
 
-  // Native <dialog> close event handler (fires on Escape key and dialog.close())
   const handleDialogClose = useCallback(() => {
     setActiveIndex(null);
     const trigger = lastTriggerRef.current;
@@ -231,14 +265,12 @@ export function MuseumPage() {
 
   return (
     <div className="museum-page">
-      {/* Top navigation back to the world */}
       <header className="museum-header">
         <Link to="/" className="museum-back-btn">
           GO BACK
         </Link>
       </header>
 
-      {/* Left & Right on-screen scroll buttons */}
       <button
         type="button"
         className="museum-scroll-btn museum-scroll-btn--left"
@@ -263,7 +295,6 @@ export function MuseumPage() {
         </svg>
       </button>
 
-      {/* Horizontally scrolling salon wall + wooden floor strip */}
       <div
         ref={viewportRef}
         className="museum-scroll-viewport"
@@ -286,10 +317,14 @@ export function MuseumPage() {
               ))}
             </div>
           </main>
+
+          <div className="museum-floor" aria-hidden="true">
+            <div className="museum-baseboard" />
+            <div className="museum-floor-planks" />
+          </div>
         </div>
       </div>
 
-      {/* Native <dialog> modal for the large artwork view */}
       <dialog
         ref={dialogRef}
         className="museum-dialog"

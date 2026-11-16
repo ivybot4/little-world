@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { books } from '../config/books';
 import './LibraryPage.css';
 
@@ -7,6 +7,7 @@ const COUNT = books.length; // 3 books
 const COPIES = 12; // 12 copies * 3 books = 36 items on the circular 3D shelf
 const TOTAL = COUNT * COPIES;
 const HALF = TOTAL / 2;
+const ACTIVE_BOOK_STORAGE_KEY = 'libraryActiveBookId';
 
 function smoothstep(x: number) {
   const c = Math.max(0, Math.min(1, x));
@@ -14,12 +15,25 @@ function smoothstep(x: number) {
 }
 
 export function LibraryPage() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const stateBookId = (location.state as { activeBookId?: string } | null)?.activeBookId;
+  const savedBookId =
+    stateBookId ??
+    (typeof window !== 'undefined' ? sessionStorage.getItem(ACTIVE_BOOK_STORAGE_KEY) : null);
+  const resolvedStartIdx = Math.max(
+    0,
+    books.findIndex((b) => b.id === savedBookId)
+  );
+
   const rootRef = useRef<HTMLDivElement>(null);
   const probeRef = useRef<HTMLDivElement>(null);
   const shelfRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const maskTitleRef = useRef<HTMLDivElement>(null);
   const maskSubRef = useRef<HTMLDivElement>(null);
+  const activeBookIdxRef = useRef<number>(resolvedStartIdx);
+  const stepShelfRef = useRef<(delta: number) => void>(() => {});
 
   useEffect(() => {
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -29,11 +43,16 @@ export function LibraryPage() {
     };
     reducedMotionQuery.addEventListener('change', onMotionChange);
 
-    // Start on the middle copy, book index 0 ("The Death of Ivan Ilyich")
-    const startIdx = 0;
+    // Start on the middle copy at the resolved book index
+    const startIdx = activeBookIdxRef.current;
     let s = startIdx + Math.floor(COPIES / 2) * COUNT;
     let T = s;
     let activeIdx = startIdx;
+    sessionStorage.setItem(ACTIVE_BOOK_STORAGE_KEY, books[startIdx].id);
+
+    stepShelfRef.current = (delta: number) => {
+      T = Math.round(T + delta);
+    };
     let tiltX = 0;
     let tiltY = 0;
     let hoveredTape: number | null = null;
@@ -167,9 +186,20 @@ export function LibraryPage() {
     }
 
     function updateCaption(newIdx: number, dir: number) {
+      activeBookIdxRef.current = newIdx;
       const book = books[newIdx];
+      sessionStorage.setItem(ACTIVE_BOOK_STORAGE_KEY, book.id);
       swapMaskText(maskTitleRef.current, book.title, dir);
       swapMaskText(maskSubRef.current, book.author, dir);
+    }
+
+    function openActiveBookReview() {
+      const idx = ((Math.round(s) % COUNT) + COUNT) % COUNT;
+      const book = books[idx];
+      if (book) {
+        sessionStorage.setItem(ACTIVE_BOOK_STORAGE_KEY, book.id);
+        navigate(`/library/${book.id}`);
+      }
     }
 
     // Drag & Click on Shelf
@@ -225,9 +255,18 @@ export function LibraryPage() {
       if (tapeTarget) {
         const vIdx = Number(tapeTarget.dataset.v);
         const r = rel(vIdx, s);
-        if (Math.abs(r) >= 0.45) {
+        if (Math.abs(r) < 0.45) {
+          openActiveBookReview();
+        } else {
           T = Math.round(T + r);
         }
+        return;
+      }
+      if (
+        Math.abs(e.clientX - W / 2) < 0.55 * d &&
+        Math.abs(e.clientY - shelfCentreY) < 0.55 * H
+      ) {
+        openActiveBookReview();
       }
     };
 
@@ -417,7 +456,7 @@ export function LibraryPage() {
     }
   }
 
-  const initialBook = books[0];
+  const initialBook = books[resolvedStartIdx] ?? books[0];
 
   return (
     <div className="vasari-archive" ref={rootRef}>
@@ -467,11 +506,46 @@ export function LibraryPage() {
         </div>
       </section>
 
+      {/* Prev / Next Book Arrow Buttons */}
+      <button
+        type="button"
+        className="vasari-arrow vasari-arrow--prev"
+        aria-label="Previous book"
+        onClick={() => stepShelfRef.current(-1)}
+      >
+        <svg viewBox="0 0 24 12" aria-hidden="true">
+          <path d="M23 6H2M7 1L2 6l5 5" />
+        </svg>
+      </button>
+
+      <button
+        type="button"
+        className="vasari-arrow vasari-arrow--next"
+        aria-label="Next book"
+        onClick={() => stepShelfRef.current(1)}
+      >
+        <svg viewBox="0 0 24 12" aria-hidden="true">
+          <path d="M1 6h21M17 1l5 5-5 5" />
+        </svg>
+      </button>
+
       {/* Caption */}
       <div className="vasari-caption">
-        <div className="vasari-mask" ref={maskTitleRef}>
-          <span className="vasari-cap-title">{initialBook.title}</span>
-        </div>
+        <button
+          type="button"
+          className="vasari-title-btn"
+          onClick={() => {
+            const book = books[activeBookIdxRef.current] ?? books[0];
+            if (book) {
+              sessionStorage.setItem(ACTIVE_BOOK_STORAGE_KEY, book.id);
+              navigate(`/library/${book.id}`);
+            }
+          }}
+        >
+          <div className="vasari-mask" ref={maskTitleRef}>
+            <span className="vasari-cap-title">{initialBook.title}</span>
+          </div>
+        </button>
         <div className="vasari-mask" ref={maskSubRef}>
           <span className="vasari-cap-sub">{initialBook.author}</span>
         </div>

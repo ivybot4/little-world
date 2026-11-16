@@ -2,6 +2,8 @@ export interface BookConfig {
   id: string;
   title: string;
   author: string;
+  /** Book review paragraphs shown on the book review page */
+  review: string[];
   /** Optional custom cover image URL (uses styled book cover if omitted) */
   coverImage?: string;
   /** Optional custom spine image URL (uses styled book spine if omitted) */
@@ -12,25 +14,49 @@ export interface BookConfig {
 
 export const books: BookConfig[] = [
   {
-    id: 'book-1',
+    id: 'the-death-of-ivan-ilyich',
     title: 'The Death of Ivan Ilyich',
     author: 'Leo Tolstoy',
+    review: [
+      'This has easily become one of my favorite books. At just around 50 pages, The Death of Ivan Ilyich by Leo Tolstoy was a great read.',
+      'There’s no surprise that the book is about the death of a man. It is about his regrets and thoughts when he knew he was going to die of a disease. It revolves around how even when we do everything by the book, we might end up feeling dissatisfied on our deathbed.',
+      'It could mean that doing everything by the book might not guarantee happiness, which makes it okay to do things that bring us joy. But it could also mean that no matter what we do, we always end up thinking about what we could’ve done.',
+      'But I would like to focus on another aspect of the book. The book also speaks of the importance of empathy. When Ivan Ilyich was sick, he did not want people fixing him or going to doctors; he just wanted people to understand the fact that he was in pain and be kind to him, just like Gerasim. It also showed the reality of human behavior. When the news of his death broke, his colleagues and friends all thought that at least it wasn’t them on the deathbed. His relationships were hollow. He and his wife had drifted apart, and he did not have fulfilling relationships with his children. ',
+      'Another thing I really liked about the book was its brevity. It conveyed what was important, without getting into a hundred other details. He was just a man on his deathbed. Not a hero to root for or a villain who deserves to die. We have no context about his kindness or mistreatment of others throughout the book. He could be likable or unlikable, but he was just a human being. He was a rational being who knew Caius was human, and humans are mortal; hence, Caius was mortal. But he also acknowledged that things that become easy to digest because they happened to others are much harder to accept when we are facing them. With his own memories, joys, and sorrows, the inevitable mortality of a human felt different.',
+      'In the beginning of his life, he was happy that there was growth. But just like a lot of people trying to fit in a structured society, he eventually became bitter. How he went to get a job for 5,000 rubles is so real because he was not satisfied; he kept having this insatiable need, but in reality, he also lacked empathy and compassion, which he realized very late.',
+      'This book really made me think. It wasn’t a fun read or a good story. The story is in the title. But I will still recommend it to everyone to read at least once.'
+    ],
     coverImage: '/images/books/ivan-ilyich-cover.svg?v=2',
     spineImage: '/images/books/ivan-ilyich-spine.svg?v=2',
     color: '#8C231F',
   },
   {
-    id: 'book-2',
+    id: 'the-little-prince',
     title: 'The Little Prince',
     author: 'Antoine de Saint-Exupéry',
+    review: [
+      'The one thing I know is that I was smiling the entire time I was reading the book. This book really made me feel good. ',
+      'The Little Prince by Antoine de Saint-Exupéry is an eighty-page book about the nicest prince from a star who meets a serious pilot in the desert. This book is about how the pilot remembers the prince and the conversations he had with him. The language is very easy to read, and you can probably read the entire book in less than 2 hours. The author’s drawings definitely add to the reading experience. ',
+      'The Little Prince had such a refreshing worldview. It is very easy for adults to lose their childlike wonder and look at people or relationships through a lens of logic and not of feeling. This book does a good job of reminding you how important it is to understand things and approach things with love and curiosity, not function and value. You could go to a place with a thousand roses, but you would still think about that one rose you had.',
+      'The simple plot also very beautifully conveyed how adults are, and how grown-ups tend to think of themselves and their work as important. I really liked how the elements in the book can mean different things to different people. ',
+      'I hope this book finds you when you need it the most.'
+    ],
     coverImage: '/images/books/little-prince-cover.svg',
     spineImage: '/images/books/little-prince-spine.svg?v=2',
     color: '#A63A28',
   },
   {
-    id: 'book-3',
+    id: 'the-midnight-library',
     title: 'The Midnight Library',
     author: 'Matt Haig',
+    review: [
+      'I had the chance to meet the author of The Midnight Library and get my copy of the book signed during his promotional tour for ‘The Midnight Train’. Matt Haig looked at it and immediately went, “This wins for having the most Post-its.” And that is for a reason.',
+      'The story follows Nora Seed,  a woman in her thirties, who gets transported to a library where she can try out all the infinite lives that she could have lived. She gets to experience all the different versions of her life based on her regrets. So if she regretted not moving abroad, she was transported into a life where she did. With around 350 pages, the story progression is fairly fast. Short chapters and quick movement from one “life” to another make it fun and easy to read.',
+      'This book does a good job of showing what goes on in someone struggling with their mental health in the present time. Not someone burdened with glorious purposes going crazy, not someone who becomes prideful, or someone who can never catch a lucky break. The protagonist is just a girl with a seemingly normal life, which in reality is not fulfilling or satisfactory for her.',
+      'It was fun exploring how different life can turn out to be if you just make a small decision differently, and it sort of reinforces the belief that whatever happens, happens for good. You can choose choices, not outcomes, and sometimes regrets are not based on facts at all. And maybe tomorrow, everything can be different, but you need to wait till tomorrow for that to happen.',
+      'It does have a predictable ending, but that does not mean that the ending is bad. It is very appropriate and kind of sweet to read. We have a lot of good books about great ideas or mysteries, but not about navigating our modern lives. I would add it to the list of good books about our lives in these times.',
+      'On a side note, I did request the author to include an Indian girl in his next novel, even if she is just a side character as a joke, but he was really nice about it. He is a pretty cool person and I am excited to read more of his books.'
+    ],
     coverImage: '/images/books/midnight-library-cover.svg',
     spineImage: '/images/books/midnight-library-spine.svg',
     color: '#13314C',

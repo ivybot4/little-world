@@ -20,7 +20,7 @@ export const buildings: BuildingConfig[] = [
     x: 42.5,
     y: -1.0,
     width: 19.5,
-    route: '/',
+    route: '/about',
   },
   {
     id: 'projects',

@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap');
+
 .museum-page {
   --wall-crimson: #a3121f;
   --wall-crimson-light: #b61927;
   --wall-crimson-dark: #7d0c16;
+  --floor-height: 76px;
   --wall-pad-top: 76px;
-  --wall-pad-bottom: 32px;
+  --wall-pad-bottom: 24px;
   --wall-pad-x: 84px;
   --salon-gap: 20px;
   --salon-rows: 9;
@@ -18,6 +21,11 @@
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   user-select: none;
   -webkit-user-select: none;
+}
+
+.museum-page--coming-soon {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Top Go Back button */
@@ -62,10 +70,62 @@
   outline-offset: 4px;
 }
 
-/* On-screen Left & Right arrow buttons */
+/* Coming Soon Centered Frame */
+.museum-wall--centered {
+  justify-content: center;
+  padding: 72px 20px 24px;
+}
+
+.museum-coming-soon-frame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: min(82vw, calc(100dvh - var(--floor-height) - 110px), 480px);
+  container-type: inline-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter:
+    drop-shadow(0 18px 28px rgba(18, 1, 3, 0.68))
+    drop-shadow(0 6px 10px rgba(12, 1, 2, 0.5));
+}
+
+.museum-coming-soon-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.museum-coming-soon-opening {
+  position: absolute;
+  inset: 22.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6%;
+  box-sizing: border-box;
+}
+
+.museum-coming-soon-text {
+  margin: 0;
+  font-family: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(13px, 5.2vmin, 28px);
+  font-size: clamp(12px, 6.2cqw, 30px);
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: #fff6e5;
+  text-shadow: 0 2px 8px rgba(24, 2, 4, 0.55);
+  overflow-wrap: break-word;
+}
+
+/* On-screen Left & Right arrow buttons (preserved for gallery mode) */
 .museum-scroll-btn {
   position: fixed;
-  top: 50%;
+  top: calc((100dvh - var(--floor-height)) / 2);
   transform: translateY(-50%);
   width: 44px;
   height: 44px;
@@ -119,7 +179,7 @@
   pointer-events: none;
 }
 
-/* Horizontal Scroll Viewport & Track */
+/* Horizontal Scroll Viewport & Track (preserved for gallery mode) */
 .museum-scroll-viewport {
   width: 100vw;
   height: 100vh;
@@ -174,10 +234,10 @@
   align-items: center;
 }
 
-/* Dense Salon Grid: fixed height, grows wider as artworks are added */
+/* Dense Salon Grid (preserved for gallery mode) */
 .museum-salon-grid {
   --wall-inner-h: calc(
-    100dvh - var(--wall-pad-top) - var(--wall-pad-bottom)
+    100dvh - var(--floor-height) - var(--wall-pad-top) - var(--wall-pad-bottom)
   );
   --cell-size: calc(
     (var(--wall-inner-h) - (var(--salon-rows) - 1) * var(--salon-gap)) / var(--salon-rows)
@@ -193,7 +253,55 @@
   justify-items: center;
 }
 
-/* Native <dialog> Modal for Large Artwork View */
+/* Wooden Floor Strip */
+.museum-floor {
+  height: var(--floor-height);
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.museum-baseboard {
+  height: 12px;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #3d1f0d 0%,
+    #522b14 45%,
+    #281307 100%
+  );
+  border-top: 1px solid rgba(255, 218, 175, 0.22);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+.museum-floor-planks {
+  flex: 1;
+  width: 100%;
+  background-color: #6e4123;
+  background-image:
+    repeating-linear-gradient(
+      180deg,
+      rgba(30, 14, 5, 0.42) 0px,
+      rgba(30, 14, 5, 0.42) 2px,
+      transparent 2px,
+      transparent 16px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(28, 12, 4, 0.48) 0px,
+      rgba(28, 12, 4, 0.48) 2px,
+      rgba(255, 210, 160, 0.06) 2px,
+      rgba(255, 210, 160, 0.06) 140px,
+      rgba(28, 12, 4, 0.35) 140px,
+      rgba(28, 12, 4, 0.35) 142px,
+      rgba(0, 0, 0, 0.05) 142px,
+      rgba(0, 0, 0, 0.05) 260px
+    ),
+    linear-gradient(180deg, #583219 0%, #784827 35%, #5e361c 100%);
+}
+
+/* Native <dialog> Modal for Large Artwork View (preserved for gallery mode) */
 .museum-dialog {
   border: none;
   padding: 0;
@@ -341,11 +449,11 @@
   color: rgba(255, 246, 229, 0.85);
 }
 
-/* Phones: keep horizontal scroll, fewer rows */
 @media (max-width: 767px) {
   .museum-page {
+    --floor-height: 58px;
     --wall-pad-top: 66px;
-    --wall-pad-bottom: 20px;
+    --wall-pad-bottom: 16px;
     --wall-pad-x: 62px;
     --salon-gap: 14px;
     --salon-rows: 6;
