@@ -42,49 +42,39 @@ export function ProjectsPage() {
         <div className="projects-grid">
           {visibleProjects.map((project) => (
             <article key={project.id} className="project-card">
-              <div className="project-image-frame">
+              <Link
+                to={`/projects/${project.id}`}
+                className="project-image-frame"
+                aria-label={`View details for ${project.title}`}
+              >
                 <img
                   src={project.image}
                   alt={project.title}
                   className="project-image"
                   draggable={false}
                 />
-              </div>
+              </Link>
 
               <div className="project-actions">
-                <button
-                  type="button"
-                  className="project-action-btn"
-                  onClick={() => {
-                    if (project.detailsUrl) {
-                      window.open(project.detailsUrl, '_blank', 'noopener,noreferrer');
-                    }
-                  }}
-                >
+                <Link to={`/projects/${project.id}`} className="project-action-btn">
                   DETAILS
-                </button>
-                <button
-                  type="button"
+                </Link>
+                <a
+                  href={project.githubUrl ?? 'https://github.com'}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="project-action-btn"
-                  onClick={() => {
-                    if (project.githubUrl) {
-                      window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
-                    }
-                  }}
                 >
                   GITHUB
-                </button>
-                <button
-                  type="button"
+                </a>
+                <a
+                  href={project.tryUrl ?? 'https://navyajain.dev'}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="project-action-btn"
-                  onClick={() => {
-                    if (project.tryUrl) {
-                      window.open(project.tryUrl, '_blank', 'noopener,noreferrer');
-                    }
-                  }}
                 >
                   TRY HERE!
-                </button>
+                </a>
               </div>
             </article>
           ))}

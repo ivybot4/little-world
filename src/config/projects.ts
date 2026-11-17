@@ -3,6 +3,7 @@ export type ProjectTag =
   | 'inference'
   | 'from-scratch'
   | 'deep-learning'
+  | 'games'
   | 'frontend';
 
 export type ProjectFilterId = 'all' | ProjectTag;
@@ -14,6 +15,7 @@ export const PROJECT_FILTERS: { id: ProjectFilterId; label: string }[] = [
   { id: 'deep-learning', label: 'DEEP LEARNING' },
   { id: 'frontend', label: 'FRONTEND' },
   { id: 'from-scratch', label: 'FROM SCRATCH' },
+  { id: 'games', label: 'GAMES'},
 ];
 
 export interface ProjectConfig {
@@ -21,6 +23,7 @@ export interface ProjectConfig {
   title: string;
   image: string;
   tags: ProjectTag[];
+  description: string[];
   detailsUrl?: string;
   githubUrl?: string;
   tryUrl?: string;
@@ -28,33 +31,103 @@ export interface ProjectConfig {
 
 export const projects: ProjectConfig[] = [
   {
-    id: 'find-a-book',
+    id: 'speech',
+    title: 'On-Device Speech',
+    image: '/images/projects/device-speech.png',
+    tags: ['inference'],
+    description: [
+      'Coming soon',
+    ],
+    githubUrl: 'https://github.com',
+    tryUrl: 'https://navyajain.dev',
+  },
+/*  {
+    id: 'book-rec',
     title: 'Find a Book',
     image: '/images/projects/book-recommendation.png',
-    tags: ['ai-engineering', 'deep-learning', 'inference'],
+    tags: ['ai-engineering', 'deep-learning'],
+    description: [
+      'Coming soon',
+    ],
+    githubUrl: 'https://github.com',
+    tryUrl: 'https://navyajain.dev',
+  },
+  
+  {
+    id: 'project3',
+    title: 'Mini vLLM from Scratch',
+    image: '/images/projects/inference-eng.png',
+    tags: ['inference', 'deep-learning', 'from-scratch'],
+    description: [
+      'Coming soon',
+    ],
+    githubUrl: 'https://github.com',
+    tryUrl: 'https://navyajain.dev',
   },
   {
-    id: 'aviation-llm',
-    title: 'Multimodal Fine-tuning',
+    id: 'project4',
+    title: 'Aviation vLLM',
     image: '/images/projects/aviation-llm.png',
     tags: ['ai-engineering'],
+    description: [
+      'Coming soon',
+    ],
+    githubUrl: 'https://github.com',
+    tryUrl: 'https://navyajain.dev',
   },
   {
-    id: 'paligemma',
-    title: 'Paligemma from Scratch',
+    id: 'project5',
+    title: 'World Model from Scratch',
+    image: '/images/projects/world-model.png',
+    tags: ['deep-learning', 'from-scratch'],
+    description: [
+      'Coming soon',
+    ],
+    githubUrl: 'https://github.com',
+    tryUrl: 'https://navyajain.dev',
+  },
+  {
+    id: 'project6',
+    title: 'Paligemma',
     image: '/images/projects/multimodal.png',
     tags: ['from-scratch', 'deep-learning'],
+    description: [
+      'Coming soon',
+    ],
+    githubUrl: 'https://github.com',
+    tryUrl: 'https://navyajain.dev',
   },
   {
-    id: 'adam-optimizer',
-    title: 'Adam Optimizer from Scratch',
+    id: 'project7',
+    title: 'Adam Optimizer',
     image: '/images/projects/adam-optimizer.png',
     tags: ['from-scratch', 'deep-learning'],
+    description: [
+      'Coming soon',
+    ],
+    githubUrl: 'https://github.com',
+    tryUrl: 'https://navyajain.dev',
   },
   {
-    id: 'wordle',
+    id: 'project8',
     title: 'Wordle',
     image: '/images/projects/wordle.png',
-    tags: ['frontend'],
+    tags: ['frontend', 'games'],
+    description: [
+      'Coming soon',
+    ],
+    githubUrl: 'https://github.com',
+    tryUrl: 'https://navyajain.dev',
   },
+  {
+    id: 'project9',
+    title: 'Portfolio Website',
+    image: '/images/projects/interactive-website.png',
+    tags: ['frontend'],
+    description: [
+      'Coming soon',
+    ],
+    githubUrl: 'https://github.com',
+    tryUrl: 'https://navyajain.dev',
+  },*/
 ];
