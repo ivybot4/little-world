@@ -68,6 +68,44 @@
   padding-left: 0.24em; /* optical centering for letter-spacing */
 }
 
+.projects-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin-top: 26px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.projects-filter-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border: 1px solid #222222;
+  background: #ffffff;
+  color: #222222;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.projects-filter-btn:hover,
+.projects-filter-btn:focus-visible,
+.projects-filter-btn--active {
+  background: #222222;
+  color: #ffffff;
+}
+
 .projects-grid-container {
   max-width: 1060px;
   margin: 0 auto;

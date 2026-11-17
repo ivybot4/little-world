@@ -1,8 +1,16 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { projects } from '../config/projects';
+import { PROJECT_FILTERS, projects, type ProjectFilterId } from '../config/projects';
 import './ProjectsPage.css';
 
 export function ProjectsPage() {
+  const [activeFilter, setActiveFilter] = useState<ProjectFilterId>('all');
+
+  const visibleProjects =
+    activeFilter === 'all'
+      ? projects
+      : projects.filter((project) => project.tags.includes(activeFilter));
+
   return (
     <div className="projects-page">
       <header className="projects-header">
@@ -11,11 +19,28 @@ export function ProjectsPage() {
         </Link>
         <p className="projects-author">NAVYA JAIN</p>
         <h1 className="projects-title">PROJECTS</h1>
+
+        <div className="projects-filters" role="group" aria-label="Filter projects by category">
+          {PROJECT_FILTERS.map((filter) => {
+            const isActive = activeFilter === filter.id;
+            return (
+              <button
+                key={filter.id}
+                type="button"
+                className={`projects-filter-btn ${isActive ? 'projects-filter-btn--active' : ''}`}
+                aria-pressed={isActive}
+                onClick={() => setActiveFilter(filter.id)}
+              >
+                {filter.label}
+              </button>
+            );
+          })}
+        </div>
       </header>
 
       <main className="projects-grid-container">
         <div className="projects-grid">
-          {projects.map((project) => (
+          {visibleProjects.map((project) => (
             <article key={project.id} className="project-card">
               <div className="project-image-frame">
                 <img

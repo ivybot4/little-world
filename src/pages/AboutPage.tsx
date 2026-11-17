@@ -37,11 +37,7 @@ export function AboutPage() {
             </p>
 
             <p className="about-paragraph">
-              I also like to build things that I would find useful. I was trying to understand how
-              FAA sectional charts are read (they look pretty complicated if you&apos;re not from an
-              aviation background), and so I fine-tuned a vision language model to understand those.
-              Or I wanted to find a book according to my mood, so built a recommender using LLMs and
-              two-tower architecture (and embedding lookups etc for the cold-start problem).
+              I am interested in on-device AI and quantization, along with world models.
             </p>
 
             <div className="about-actions">
