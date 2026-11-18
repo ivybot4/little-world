@@ -1,10 +1,12 @@
+import type { ComponentType } from 'react';
+import SpeechContent from '../content/projects/speech';
+
 export type ProjectTag =
   | 'ai-engineering'
   | 'inference'
   | 'from-scratch'
   | 'deep-learning'
-  | 'games'
-  | 'frontend';
+  | 'games';
 
 export type ProjectFilterId = 'all' | ProjectTag;
 
@@ -13,7 +15,6 @@ export const PROJECT_FILTERS: { id: ProjectFilterId; label: string }[] = [
   { id: 'ai-engineering', label: 'AI ENGINEERING' },
   { id: 'inference', label: 'INFERENCE' },
   { id: 'deep-learning', label: 'DEEP LEARNING' },
-  { id: 'frontend', label: 'FRONTEND' },
   { id: 'from-scratch', label: 'FROM SCRATCH' },
   { id: 'games', label: 'GAMES'},
 ];
@@ -23,7 +24,10 @@ export interface ProjectConfig {
   title: string;
   image: string;
   tags: ProjectTag[];
-  description: string[];
+  /** Rich writeup component from src/content/projects/<id>.tsx */
+  content?: ComponentType;
+  /** Simple fallback paragraphs, used only when `content` is not set */
+  description?: string[];
   detailsUrl?: string;
   githubUrl?: string;
   tryUrl?: string;
@@ -34,11 +38,9 @@ export const projects: ProjectConfig[] = [
     id: 'speech',
     title: 'On-Device Speech',
     image: '/images/projects/device-speech.png',
-    tags: ['inference'],
-    description: [
-      'Coming soon',
-    ],
-    githubUrl: 'https://github.com',
+    tags: ['ai-engineering', 'inference', 'deep-learning'],
+    content: SpeechContent,
+    githubUrl: 'https://github.com/ivybot4/on-device-hinglish-asr',
     tryUrl: 'https://navyajain.dev',
   },
 /*  {

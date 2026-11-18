@@ -10,6 +10,8 @@ export function ProjectDetailPage() {
     return <Navigate to="/projects" replace />;
   }
 
+  const Content = project.content;
+
   return (
     <div className="project-detail-page">
       <header className="project-detail-header">
@@ -23,11 +25,15 @@ export function ProjectDetailPage() {
         <div className="project-detail-divider" />
 
         <div className="project-detail-body">
-          {project.description.map((paragraph, index) => (
-            <p key={index} className="project-detail-paragraph">
-              {paragraph}
-            </p>
-          ))}
+          {Content ? (
+            <Content />
+          ) : (
+            (project.description ?? []).map((paragraph, index) => (
+              <p key={index} className="project-detail-paragraph">
+                {paragraph}
+              </p>
+            ))
+          )}
         </div>
       </main>
     </div>

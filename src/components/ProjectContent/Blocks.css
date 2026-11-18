@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap');
+
+.pc-section {
+  margin: 0 0 44px;
+}
+
+.pc-h2 {
+  margin: 0 0 16px;
+  font-family: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #141414;
+}
+
+.pc-h3 {
+  margin: 28px 0 10px;
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.25;
+  color: #1a1a1a;
+}
+
+.pc-p {
+  margin: 0 0 16px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #242424;
+}
+
+.pc-lead {
+  margin: 0 0 28px;
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(19px, 1.8vw, 22px);
+  line-height: 1.55;
+  color: #2a2a2a;
+}
+
+.pc-link {
+  color: #141414;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(20, 20, 20, 0.45);
+  transition: text-decoration-color 160ms ease, color 160ms ease;
+}
+
+.pc-link:hover {
+  color: #8c231f;
+  text-decoration-color: #8c231f;
+}
+
+.pc-figure {
+  margin: 28px auto;
+  max-width: 100%;
+}
+
+.pc-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pc-img--bordered {
+  border: 1.5px solid #181818;
+}
+
+.pc-caption {
+  margin-top: 10px;
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #6d6a63;
+  text-align: center;
+}
+
+.pc-columns {
+  display: grid;
+  margin: 24px 0;
+}
+
+.pc-columns > .pc-figure {
+  margin: 0;
+}
+
+.pc-quote {
+  margin: 36px 0;
+  padding: 4px 0 4px 26px;
+  border-left: 2px solid #141414;
+}
+
+.pc-quote p {
+  margin: 0;
+  font-family: 'Cormorant Garamond', 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.35;
+  color: #1a1a1a;
+}
+
+.pc-quote cite {
+  display: block;
+  margin-top: 10px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6d6a63;
+}
+
+.pc-callout {
+  margin: 28px 0;
+  padding: 18px 22px;
+  border: 1px solid #222222;
+  background: #ffffff;
+}
+
+.pc-callout > :last-child {
+  margin-bottom: 0;
+}
+
+.pc-callout--success {
+  background: #f1f7ef;
+  border-color: #3d5a45;
+}
+
+.pc-callout--warning {
+  background: #fbf3e8;
+  border-color: #9e6a2b;
+}
+
+.pc-callout-title {
+  margin: 0 0 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #141414;
+}
+
+.pc-list {
+  margin: 0 0 18px;
+  padding-left: 22px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #242424;
+}
+
+.pc-list li + li {
+  margin-top: 6px;
+}
+
+.pc-code {
+  margin: 22px 0;
+  padding: 16px 18px;
+  background: #1c1b19;
+  color: #ece8e0;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+  overflow-x: auto;
+  border-radius: 2px;
+}
+
+.pc-inline-code {
+  padding: 1px 6px;
+  background: rgba(20, 20, 20, 0.07);
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+}
+
+.pc-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.pc-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border: 1px solid #222222;
+  background: #ffffff;
+}
+
+.pc-stat-value {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  color: #141414;
+}
+
+.pc-stat-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6d6a63;
+}
+
+.pc-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1.5px solid #181818;
+  background: #000;
+}
+
+.pc-video iframe,
+.pc-video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.pc-divider {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid rgba(20, 20, 20, 0.2);
+}
+
+@media (max-width: 680px) {
+  .pc-columns {
+    grid-template-columns: 1fr !important;
+  }
+}
