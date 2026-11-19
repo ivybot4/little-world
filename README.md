@@ -1,6 +1,6 @@
-# 3D Interactive Portfolio Website
+# Ivy's Crayons
 
-This is my portfolio website. Please view it at navyajain.dev
+This site is a personal archive of interesting bits of art, culture and history.
 
 I used Google's Antigravity and Gemini Argon to make most of it. Images were generated with Gemini Hydrogen and ChatGPT.
 

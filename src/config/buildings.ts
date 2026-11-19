@@ -15,21 +15,12 @@ export interface BuildingConfig {
 export const buildings: BuildingConfig[] = [
   {
     id: 'cloud',
-    name: "Navya's Portfolio",
-    image: '/images/buildings/about.png',
+    name: "Ivy's Crayons",
+    image: '/images/buildings/cloud.png',
     x: 42.5,
     y: -1.0,
     width: 19.5,
     route: '/about',
-  },
-  {
-    id: 'projects',
-    name: 'Projects',
-    image: '/images/buildings/projects.png',
-    x: 26.6,
-    y: 17.7,
-    width: 16.5,
-    route: '/projects',
   },
   {
     id: 'museum',

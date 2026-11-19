@@ -24,6 +24,7 @@ import {
   Section,
   Stats,
   SubHeading,
+  ProjectActions,
   Video,
 } from '../../components/ProjectContent/Blocks';
 
@@ -43,6 +44,16 @@ export default function TemplateContent() {
       />
 
       <Section title="Overview">
+        <SubHeading>Tech Stack · Tools · Frameworks</SubHeading>
+
+        <ProjectActions
+          githubUrl="https://github.com"
+          tryUrl="https://navyajain.dev"
+        >
+          {/* You can also add custom extra buttons with <ActionButton>: */}
+          {/* <ActionButton href="https://example.com">DOCS</ActionButton> */}
+        </ProjectActions>
+
         <P>
           Regular paragraph text with a <A href="https://example.com">link</A>, some{' '}
           <strong>bold</strong>, some <em>italics</em>, and inline code like <C>torch.compile</C>.

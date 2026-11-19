@@ -1,4 +1,4 @@
-import { A, Figure, P, Section, SubHeading } from '../../components/ProjectContent/Blocks';
+import { Figure, P, ProjectActions, Section, SubHeading } from '../../components/ProjectContent/Blocks';
 
 export default function SpeechContent() {
   return (
@@ -18,23 +18,34 @@ export default function SpeechContent() {
           Quantization | Fine-tuning | HuggingFace Transformers | PyTorch | OpenAI Whisper
         </SubHeading>
 
-        <P>
-          <A href="https://github.com/ivybot4/on-device-hinglish-asr">github.com/ivybot4/on-device-hinglish-asr</A>
-        </P>
+        <ProjectActions
+          githubUrl="https://github.com/ivybot4/on-device-hinglish-asr"
+          tryUrl="https://navyajain.dev"
+        />
+        <>
+        <p>This project can be divided into 3 main tasks:</p>
+        <ol>
+          <li>Fine-tune a model on Hindi, English, and Hinglish data</li>
+          <li>Quantize the model</li>
+          <li>Build a real-time pipeline</li>
+        </ol>
+        </>
 
-        <P>A model listens to audio as a 1D array of floating numbers of the size of a sampling rate.
-          Wav2Vec was pretrained with self-supervised learning and then fine-tuned on a small labeled dataset.
-          But Whisper decided to use supervised learning with weak dataset, that includes noisy data. 
-          This means that a lot of data with supervised learning performs better even if the data is not the best.
+        <P>
+          A model processes audio in the form of a 1D array of floating point numbers. 
         </P>
 
         <Figure
-          src="/images/projects/device-speech.png"
+          src="/images/projects/on-device-speech.png"
           alt="On-Device Speech project"
           width="70%"
         />
 
         <P>The baseline was zero-shot Whisper small. Fine-tuning was a lot better.</P>
+
+        <P> 
+          Initially I used a huge dataset which made English words be typed in Devnagiri script. So had to fix that.
+        </P>
 
       </Section>
     </>

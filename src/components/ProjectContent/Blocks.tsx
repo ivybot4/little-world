@@ -226,6 +226,54 @@ export function Video({ src, title = 'Video', caption }: { src: string; title?: 
   );
 }
 
+/** Single action button styled like the project cards (border, hover invert). */
+export function ActionButton({
+  href,
+  children,
+  style,
+  className,
+}: {
+  href: string;
+  children: ReactNode;
+  style?: CSSProperties;
+  className?: string;
+}) {
+  const external = /^https?:\/\//.test(href);
+  return (
+    <a
+      href={href}
+      className={cx('pc-action-btn', className)}
+      style={style}
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+    >
+      {children}
+    </a>
+  );
+}
+
+/** Row of action buttons (e.g. GITHUB, TRY HERE!). */
+export function ProjectActions({
+  children,
+  githubUrl,
+  tryUrl,
+  style,
+  className,
+}: {
+  children?: ReactNode;
+  githubUrl?: string;
+  tryUrl?: string;
+  style?: CSSProperties;
+  className?: string;
+}) {
+  return (
+    <div className={cx('pc-actions', className)} style={style}>
+      {githubUrl && <ActionButton href={githubUrl}>GITHUB</ActionButton>}
+      {tryUrl && <ActionButton href={tryUrl}>TRY HERE!</ActionButton>}
+      {children}
+    </div>
+  );
+}
+
 /** Thin horizontal divider. */
 export function Divider() {
   return <hr className="pc-divider" />;

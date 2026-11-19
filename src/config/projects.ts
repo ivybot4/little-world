@@ -36,7 +36,7 @@ export interface ProjectConfig {
 export const projects: ProjectConfig[] = [
   {
     id: 'speech',
-    title: 'On-Device Speech',
+    title: 'On-Device Speech Transcription',
     image: '/images/projects/device-speech.png',
     tags: ['ai-engineering', 'inference', 'deep-learning'],
     content: SpeechContent,

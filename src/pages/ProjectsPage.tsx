@@ -17,7 +17,6 @@ export function ProjectsPage() {
         <Link to="/" className="projects-home-btn">
           GO HOME
         </Link>
-        <p className="projects-author">NAVYA JAIN</p>
         <h1 className="projects-title">PROJECTS</h1>
 
         <div className="projects-filters" role="group" aria-label="Filter projects by category">

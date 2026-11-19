@@ -28,11 +28,37 @@ export function ProjectDetailPage() {
           {Content ? (
             <Content />
           ) : (
-            (project.description ?? []).map((paragraph, index) => (
-              <p key={index} className="project-detail-paragraph">
-                {paragraph}
-              </p>
-            ))
+            <>
+              {(project.githubUrl || project.tryUrl) && (
+                <div className="pc-actions" style={{ marginTop: 0, marginBottom: 24 }}>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pc-action-btn"
+                    >
+                      GITHUB
+                    </a>
+                  )}
+                  {project.tryUrl && (
+                    <a
+                      href={project.tryUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pc-action-btn"
+                    >
+                      TRY HERE!
+                    </a>
+                  )}
+                </div>
+              )}
+              {(project.description ?? []).map((paragraph, index) => (
+                <p key={index} className="project-detail-paragraph">
+                  {paragraph}
+                </p>
+              ))}
+            </>
           )}
         </div>
       </main>
