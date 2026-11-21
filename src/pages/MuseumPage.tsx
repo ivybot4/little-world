@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Frame } from '../components/Museum/Frame';
 import { artworks, type ArtworkConfig } from '../config/artworks';
+import { assetUrl } from '../utils/asset';
 import './MuseumPage.css';
 
 /**
@@ -22,7 +23,7 @@ export function MuseumPage() {
       <main className="museum-wall museum-wall--centered" aria-label="Museum">
         <div className="museum-coming-soon-frame">
           <img
-            src="/images/museum/frame.png"
+            src={assetUrl('/images/museum/frame.png')}
             alt=""
             aria-hidden="true"
             className="museum-coming-soon-img"

@@ -1,4 +1,5 @@
 import { Figure, P, ProjectActions, Section, SubHeading } from '../../components/ProjectContent/Blocks';
+import { assetUrl } from '../../utils/asset';
 
 export default function SpeechContent() {
   return (
@@ -36,7 +37,7 @@ export default function SpeechContent() {
         </P>
 
         <Figure
-          src="/images/projects/on-device-speech.png"
+          src={assetUrl('/images/projects/on-device-speech.png')}
           alt="On-Device Speech project"
           width="70%"
         />

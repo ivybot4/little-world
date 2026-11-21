@@ -1,3 +1,5 @@
+import { assetUrl } from '../utils/asset';
+
 export interface BookConfig {
   id: string;
   title: string;
@@ -26,8 +28,8 @@ export const books: BookConfig[] = [
       'In the beginning of his life, he was happy that there was growth. But just like a lot of people trying to fit in a structured society, he eventually became bitter. How he went to get a job for 5,000 rubles is so real because he was not satisfied; he kept having this insatiable need, but in reality, he also lacked empathy and compassion, which he realized very late.',
       'This book really made me think. It wasn’t a fun read or a good story. The story is in the title. But I will still recommend it to everyone to read at least once.'
     ],
-    coverImage: '/images/books/ivan-ilyich-cover.svg?v=2',
-    spineImage: '/images/books/ivan-ilyich-spine.svg?v=2',
+    coverImage: assetUrl('/images/books/ivan-ilyich-cover.svg?v=2'),
+    spineImage: assetUrl('/images/books/ivan-ilyich-spine.svg?v=2'),
     color: '#8C231F',
   },
   {
@@ -41,8 +43,8 @@ export const books: BookConfig[] = [
       'The simple plot also very beautifully conveyed how adults are, and how grown-ups tend to think of themselves and their work as important. I really liked how the elements in the book can mean different things to different people. ',
       'I hope this book finds you when you need it the most.'
     ],
-    coverImage: '/images/books/little-prince-cover.svg',
-    spineImage: '/images/books/little-prince-spine.svg?v=2',
+    coverImage: assetUrl('/images/books/little-prince-cover.svg'),
+    spineImage: assetUrl('/images/books/little-prince-spine.svg?v=2'),
     color: '#A63A28',
   },
   {
@@ -57,8 +59,8 @@ export const books: BookConfig[] = [
       'It does have a predictable ending, but that does not mean that the ending is bad. It is very appropriate and kind of sweet to read. We have a lot of good books about great ideas or mysteries, but not about navigating our modern lives. I would add it to the list of good books about our lives in these times.',
       'On a side note, I did request the author to include an Indian girl in his next novel, even if she is just a side character as a joke, but he was really nice about it. He is a pretty cool person and I am excited to read more of his books.'
     ],
-    coverImage: '/images/books/midnight-library-cover.svg',
-    spineImage: '/images/books/midnight-library-spine.svg',
+    coverImage: assetUrl('/images/books/midnight-library-cover.svg'),
+    spineImage: assetUrl('/images/books/midnight-library-spine.svg'),
     color: '#13314C',
   },
   {
@@ -74,8 +76,8 @@ export const books: BookConfig[] = [
       'Of course, it’s only fair to think about the other side of things as well. Television was becoming increasingly popular around the time the book was released, and it made sense to associate reading with smartness and consuming other forms of media as something that promotes less thinking. But there is truth in what he wrote because our generation sees the effects of it in real time. We see how easy it is to get lost in a sea of information and form opinions by listening to others that might not even be fully ours. And the diversity in video content has increased now, which is a good thing. But if we remember the old TV shows, we also see how different they were and how they promoted certain ideas we might not fully resonate with.',
       'So, I would definitely recommend this read if you want to expand your point of view. Everyone should read this at least once, if not for the story, then for the message and the beautiful ways in which the author describes complex feelings and thoughts.'
     ],
-    coverImage: '/images/books/farenheit-451-cover.svg',
-    spineImage: '/images/books/farenheit-451-spine.svg',
+    coverImage: assetUrl('/images/books/farenheit-451-cover.svg'),
+    spineImage: assetUrl('/images/books/farenheit-451-spine.svg'),
     color: '#E32028',
   },
 ];

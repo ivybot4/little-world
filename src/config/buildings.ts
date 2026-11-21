@@ -1,3 +1,5 @@
+import { assetUrl } from '../utils/asset';
+
 export interface BuildingConfig {
   id: string;
   name: string;
@@ -16,7 +18,7 @@ export const buildings: BuildingConfig[] = [
   {
     id: 'cloud',
     name: "Ivy's Crayons",
-    image: '/images/buildings/cloud.png',
+    image: assetUrl('/images/buildings/cloud.png'),
     x: 42.5,
     y: -1.0,
     width: 19.5,
@@ -25,7 +27,7 @@ export const buildings: BuildingConfig[] = [
   {
     id: 'museum',
     name: 'Museum',
-    image: '/images/buildings/museum.png',
+    image: assetUrl('/images/buildings/museum.png'),
     x: 68.5,
     y: 7.5,
     width: 25.0,
@@ -34,7 +36,7 @@ export const buildings: BuildingConfig[] = [
   {
     id: 'library',
     name: 'Library',
-    image: '/images/buildings/library.png?v=3',
+    image: assetUrl('/images/buildings/library.png?v=3'),
     x: 68.0,
     y: 35.0,
     width: 21.0,

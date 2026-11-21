@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react';
 import SpeechContent from '../content/projects/speech';
+import { assetUrl } from '../utils/asset';
 
 export type ProjectTag =
   | 'ai-engineering'
@@ -37,7 +38,7 @@ export const projects: ProjectConfig[] = [
   {
     id: 'speech',
     title: 'On-Device Speech Transcription',
-    image: '/images/projects/device-speech.png',
+    image: assetUrl('/images/projects/device-speech.png'),
     tags: ['ai-engineering', 'inference', 'deep-learning'],
     content: SpeechContent,
     githubUrl: 'https://github.com/ivybot4/on-device-hinglish-asr',

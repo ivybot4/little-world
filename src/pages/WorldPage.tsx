@@ -4,11 +4,12 @@ import { SceneLayer } from '../components/Scene/SceneLayer';
 import { TreeWindEffect } from '../components/Trees/TreeWindEffect';
 import { WaterEffect } from '../components/Water/WaterEffect';
 import { buildings } from '../config/buildings';
+import { assetUrl } from '../utils/asset';
 
 export function WorldPage() {
   return (
     <SceneContainer
-      baseImageSrc="/images/base-ground.png?v=7"
+      baseImageSrc={assetUrl('/images/base-ground.png?v=7')}
       baseImageAlt="Little World landscape with rolling green hills, mountains, and a winding river"
     >
       {/* Layer 1: Water effect using a mask image */}

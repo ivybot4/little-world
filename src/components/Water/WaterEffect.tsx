@@ -1,3 +1,4 @@
+import { assetUrl } from '../../utils/asset';
 import './WaterEffect.css';
 
 export interface WaterEffectProps {
@@ -6,7 +7,7 @@ export interface WaterEffectProps {
 }
 
 export function WaterEffect({
-  maskSrc = '/images/river-mask.png',
+  maskSrc = assetUrl('/images/river-mask.png'),
 }: WaterEffectProps) {
   return (
     <div
