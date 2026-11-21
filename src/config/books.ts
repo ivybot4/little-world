@@ -61,4 +61,21 @@ export const books: BookConfig[] = [
     spineImage: '/images/books/midnight-library-spine.svg',
     color: '#13314C',
   },
+  {
+    id: 'farenheit-451',
+    title: 'Farenheit 451',
+    author: 'Ray Bradbury',
+    review: [
+      'Fahrenheit 451 is a short novel (about 150 pages) by Ray Bradbury that made me question how I process information and define intelligence.',
+      'The story follows the protagonist, Guy Montag, a fireman in a world where firemen burn houses that contain books. He begins to question his job and understand the importance of books throughout the story, and questions his personal philosophy.',
+      'It started strong and is definitely very fast-paced. Things happen very quickly, but what stays is the description of events and the words the author uses to describe things. He puts complex ideas into these gentle quotes that really broaden the way I look at things. Yes, it is verbose, and the ending is a little too open-ended for me, but I think this is criticism for the sake of criticism.',
+      'Whenever I read a dystopian novel (especially something like this published in 1953), I tend to look for similarities with the world, which were way too many in this book. For instance, people here used little seashells to listen to the radio 24/7, similar to how all of us always have earphones on. This really makes the book engaging to sit with.',
+      'The author mentions how books naturally fade out and are replaced by things that give a quick boost of dopamine, and how people want to think that they are thinking, but in reality don’t really engage in deep thought.',
+      'Of course, it’s only fair to think about the other side of things as well. Television was becoming increasingly popular around the time the book was released, and it made sense to associate reading with smartness and consuming other forms of media as something that promotes less thinking. But there is truth in what he wrote because our generation sees the effects of it in real time. We see how easy it is to get lost in a sea of information and form opinions by listening to others that might not even be fully ours. And the diversity in video content has increased now, which is a good thing. But if we remember the old TV shows, we also see how different they were and how they promoted certain ideas we might not fully resonate with.',
+      'So, I would definitely recommend this read if you want to expand your point of view. Everyone should read this at least once, if not for the story, then for the message and the beautiful ways in which the author describes complex feelings and thoughts.'
+    ],
+    coverImage: '/images/books/farenheit-451-cover.svg',
+    spineImage: '/images/books/farenheit-451-spine.svg',
+    color: '#E32028',
+  },
 ];
