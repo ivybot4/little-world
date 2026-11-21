@@ -4,6 +4,7 @@ export interface BookConfig {
   id: string;
   title: string;
   author: string;
+  rating: string;
   /** Book review paragraphs shown on the book review page */
   review: string[];
   /** Optional custom cover image URL (uses styled book cover if omitted) */
@@ -19,6 +20,7 @@ export const books: BookConfig[] = [
     id: 'the-death-of-ivan-ilyich',
     title: 'The Death of Ivan Ilyich',
     author: 'Leo Tolstoy',
+    rating: '9.5/10',
     review: [
       'This has easily become one of my favorite books. At just around 50 pages, The Death of Ivan Ilyich by Leo Tolstoy was a great read.',
       'There’s no surprise that the book is about the death of a man. It is about his regrets and thoughts when he knew he was going to die of a disease. It revolves around how even when we do everything by the book, we might end up feeling dissatisfied on our deathbed.',
@@ -36,6 +38,7 @@ export const books: BookConfig[] = [
     id: 'the-little-prince',
     title: 'The Little Prince',
     author: 'Antoine de Saint-Exupéry',
+    rating: '9/10',
     review: [
       'The one thing I know is that I was smiling the entire time I was reading the book. This book really made me feel good. ',
       'The Little Prince by Antoine de Saint-Exupéry is an eighty-page book about the nicest prince from a star who meets a serious pilot in the desert. This book is about how the pilot remembers the prince and the conversations he had with him. The language is very easy to read, and you can probably read the entire book in less than 2 hours. The author’s drawings definitely add to the reading experience. ',
@@ -51,6 +54,7 @@ export const books: BookConfig[] = [
     id: 'the-midnight-library',
     title: 'The Midnight Library',
     author: 'Matt Haig',
+    rating: '8.5/10',
     review: [
       'I had the chance to meet the author of The Midnight Library and get my copy of the book signed during his promotional tour for ‘The Midnight Train’. Matt Haig looked at it and immediately went, “This wins for having the most Post-its.” And that is for a reason.',
       'The story follows Nora Seed,  a woman in her thirties, who gets transported to a library where she can try out all the infinite lives that she could have lived. She gets to experience all the different versions of her life based on her regrets. So if she regretted not moving abroad, she was transported into a life where she did. With around 350 pages, the story progression is fairly fast. Short chapters and quick movement from one “life” to another make it fun and easy to read.',
@@ -67,6 +71,7 @@ export const books: BookConfig[] = [
     id: 'farenheit-451',
     title: 'Farenheit 451',
     author: 'Ray Bradbury',
+    rating: '7.5/10',
     review: [
       'Fahrenheit 451 is a short novel (about 150 pages) by Ray Bradbury that made me question how I process information and define intelligence.',
       'The story follows the protagonist, Guy Montag, a fireman in a world where firemen burn houses that contain books. He begins to question his job and understand the importance of books throughout the story, and questions his personal philosophy.',

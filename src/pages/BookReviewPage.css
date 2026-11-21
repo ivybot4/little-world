@@ -87,7 +87,7 @@
 }
 
 .book-review-title {
-  margin: 0 0 20px;
+  margin: 0 0 10px;
   font-family: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
   font-weight: 700;
   font-size: clamp(32px, 4.2vw, 56px);
@@ -95,6 +95,15 @@
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: #141414;
+}
+
+.book-review-rating {
+  margin: 0 0 18px;
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  color: #6d6a63;
 }
 
 .book-review-divider {

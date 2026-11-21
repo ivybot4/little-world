@@ -55,6 +55,7 @@ export function BookReviewPage() {
         <article className="book-review-text-col">
           <p className="book-review-author">{book.author}</p>
           <h1 className="book-review-title">{book.title}</h1>
+          <p className="book-review-rating">{book.rating}</p>
           <div className="book-review-divider" />
 
           <div className="book-review-body">

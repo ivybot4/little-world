@@ -431,6 +431,15 @@
   color: var(--ink);
 }
 
+.vasari-cap-rating {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+
 .vasari-cap-hint {
   margin: 10px 0 0;
   font-family: "Newsreader", Georgia, serif;

@@ -32,6 +32,7 @@ export function LibraryPage() {
   const stageRef = useRef<HTMLDivElement>(null);
   const maskTitleRef = useRef<HTMLDivElement>(null);
   const maskSubRef = useRef<HTMLDivElement>(null);
+  const maskRatingRef = useRef<HTMLDivElement>(null);
   const activeBookIdxRef = useRef<number>(resolvedStartIdx);
   const stepShelfRef = useRef<(delta: number) => void>(() => {});
 
@@ -191,6 +192,7 @@ export function LibraryPage() {
       sessionStorage.setItem(ACTIVE_BOOK_STORAGE_KEY, book.id);
       swapMaskText(maskTitleRef.current, book.title, dir);
       swapMaskText(maskSubRef.current, book.author, dir);
+      swapMaskText(maskRatingRef.current, book.rating, dir);
     }
 
     function openActiveBookReview() {
@@ -548,6 +550,9 @@ export function LibraryPage() {
         </button>
         <div className="vasari-mask" ref={maskSubRef}>
           <span className="vasari-cap-sub">{initialBook.author}</span>
+        </div>
+        <div className="vasari-mask" ref={maskRatingRef}>
+          <span className="vasari-cap-rating">{initialBook.rating}</span>
         </div>
         <p className="vasari-cap-hint">
           Click on a book to know more and to read the review.
